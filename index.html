@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de Acreditación SPD — INASEP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --verde: #1a3c1a;
+      --verde-medio: #2d5a2d;
+      --verde-claro: #3d7a3d;
+      --dorado: #c9973a;
+      --dorado-claro: #e8b55a;
+      --gris-fondo: #f5f6f4;
+      --gris-borde: #dde0d8;
+      --texto: #1a1a1a;
+      --texto-suave: #4a5240;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gris-fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--verde);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--dorado), var(--dorado-claro), var(--dorado));
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 36px 32px 32px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .logo-wrap img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+    }
+    .header-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .header-text .subtitulo {
+      color: var(--dorado-claro);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+    .header-text .institucion {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      margin-top: 4px;
+    }
+
+    /* ── CONTENIDO ── */
+    main {
+      max-width: 860px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+    }
+
+    /* Bloque de intro */
+    .intro-box {
+      background: #fff;
+      border-left: 4px solid var(--dorado);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 36px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .intro-box p {
+      color: var(--texto-suave);
+      font-size: 0.93rem;
+    }
+    .intro-box strong { color: var(--verde); }
+
+    /* Sección título */
+    .seccion-titulo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      margin-top: 40px;
+    }
+    .seccion-titulo .num {
+      background: var(--verde);
+      color: var(--dorado-claro);
+      font-weight: 700;
+      font-size: 0.8rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .seccion-titulo h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--verde);
+      letter-spacing: 0.01em;
+    }
+
+    /* Pasos */
+    .pasos {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .paso {
+      background: #fff;
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border: 1px solid var(--gris-borde);
+      transition: box-shadow 0.2s;
+    }
+    .paso:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.1); }
+    .paso .icono {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .paso .contenido strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--verde);
+      margin-bottom: 4px;
+    }
+    .paso .contenido p {
+      font-size: 0.87rem;
+      color: var(--texto-suave);
+    }
+    .paso .contenido .nota {
+      display: inline-block;
+      background: #fffbf0;
+      border: 1px solid #f0d898;
+      color: #7a5800;
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+
+    /* Botón ClaveÚnica */
+    .clave-unica-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1565c0;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 2px 8px rgba(21,101,192,0.35);
+    }
+    .clave-unica-btn:hover {
+      background: #0d47a1;
+      transform: translateY(-1px);
+    }
+    .clave-unica-btn .cu-escudo {
+      font-size: 1.1rem;
+    }
+
+    /* Grid documentos */
+    .docs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 560px) {
+      .docs-grid { grid-template-columns: 1fr; }
+    }
+    .doc-card {
+      background: #fff;
+      border: 1px solid var(--gris-borde);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .doc-card .doc-icono {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+    .doc-card .doc-texto strong {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--verde);
+      display: block;
+    }
+    .doc-card .doc-texto span {
+      font-size: 0.78rem;
+      color: var(--texto-suave);
+    }
+
+    /* Alerta pantallazo */
+    .alerta-pantallazo {
+      background: #e8f5e9;
+      border: 1px solid #a5d6a7;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-top: 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .alerta-pantallazo .icono-alerta { font-size: 1.4rem; flex-shrink: 0; }
+    .alerta-pantallazo p {
+      font-size: 0.88rem;
+      color: #1b5e20;
+      line-height: 1.5;
+    }
+    .alerta-pantallazo strong { color: #1b5e20; }
+
+    /* Upload simulado */
+    .upload-zona {
+      margin-top: 14px;
+      background: #f0f7f0;
+      border: 2px dashed #81c784;
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+    }
+    .upload-zona p {
+      font-size: 0.82rem;
+      color: #388e3c;
+      font-weight: 500;
+    }
+    .upload-zona small {
+      color: #66bb6a;
+      font-size: 0.75rem;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--gris-borde);
+      margin: 40px 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--verde);
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.8rem;
+      margin-top: 60px;
+    }
+    footer strong { color: var(--dorado-claro); }
+    footer .contacto {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+    }
+    footer .contacto a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    footer .contacto a:hover { color: var(--dorado-claro); }
+
+    /* Declaraciones juradas */
+    .dj-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--gris-borde);
+      border-radius: 8px;
+      padding: 13px 16px;
+      text-decoration: none;
+      color: var(--texto);
+      font-size: 0.87rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .dj-link:hover {
+      border-color: var(--dorado);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .dj-link span:nth-child(2) { flex: 1; }
+    .dj-dl {
+      background: var(--verde);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Capturas de pantalla */
+    .captura {
+      margin-top: 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--gris-borde);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .captura img { width: 100%; display: block; }
+    .captura-label {
+      background: var(--verde);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.72rem;
+      padding: 5px 12px;
+      text-align: center;
+    }
+    .capturas-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    @media (max-width: 560px) { .capturas-row { grid-template-columns: 1fr; } }
+
+    /* Tag SPD */
+    .tag-spd {
+      display: inline-block;
+      background: rgba(201,151,58,0.12);
+      color: var(--dorado);
+      border: 1px solid rgba(201,151,58,0.35);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Logo INASEP" />
+    </div>
+    <div class="header-text">
+      <h1>Guía de Acreditación en la Plataforma SPD</h1>
+      <div class="subtitulo">Proceso de Certificación OS-10 · Ley N° 21.659</div>
+      <div class="institucion">Instituto Nacional de Seguridad Privada SpA — INASEP</div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- Intro -->
+  <div class="intro-box">
+    <p>Esta guía explica paso a paso cómo completar tu solicitud de acreditación en la <strong>Plataforma de la Subsecretaría de Prevención del Delito (SPD)</strong>. Sigue cada etapa en orden y asegúrate de tener todos los documentos listos antes de comenzar.</p>
+  </div>
+
+  <!-- PASO 1 -->
+  <div class="seccion-titulo">
+    <div class="num">1</div>
+    <h2>Accede a la Plataforma SPD con ClaveÚnica</h2>
+  </div>
+
+  <div class="pasos">
+    <div class="paso">
+      <div class="icono">🔐</div>
+      <div class="contenido">
+        <strong>Inicia sesión con tu ClaveÚnica</strong>
+        <p>Utiliza el botón a continuación para acceder directamente al portal de la SPD. Necesitarás tu RUN y tu clave registrada en el Registro Civil.</p>
+        <a class="clave-unica-btn" href="https://segprivada.minsegpublica.gob.cl/" target="_blank" rel="noopener">
+          <span class="cu-escudo">🛡️</span>
+          Acceder al Portal SPD · Seguridad Privada
+        </a>
+        <div class="captura">
+          <img src="paso1.png" alt="Pantalla de inicio plataforma SPD" />
+          <div class="captura-label">Pantalla de inicio — Plataforma Seguridad Privada SPD</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="paso">
+      <div class="icono">📋</div>
+      <div class="contenido">
+        <strong>Haz clic en "Nueva Solicitud"</strong>
+        <p>Una vez dentro de la plataforma, ve a <em>Solicitudes → Gestión de solicitudes → Mis solicitudes</em> y luego haz clic en <strong>+ Ingresar nueva solicitud</strong>.</p>
+        <div class="capturas-row">
+          <div class="captura">
+            <img src="paso2.png" alt="Menú Gestión de solicitudes" />
+            <div class="captura-label">Gestión de solicitudes → Mis solicitudes</div>
+          </div>
+          <div class="captura">
+            <img src="paso3.png" alt="Botón ingresar nueva solicitud" />
+            <div class="captura-label">Clic en "+ Ingresar nueva solicitud"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="paso">
+      <div class="icono">👤</div>
+      <div class="contenido">
+        <strong>Selecciona "Persona en Seguridad Privada"</strong>
+        <p>En el modal que aparece, elige la categoría <em>Persona en Seguridad Privada</em> para el proceso de acreditación del curso OS-10.</p>
+        <div class="captura">
+          <img src="paso4.png" alt="Modal nueva solicitud - Persona en Seguridad Privada" />
+          <div class="captura-label">Seleccionar "Persona en Seguridad Privada"</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="paso">
+      <div class="icono">🛡️</div>
+      <div class="contenido">
+        <strong>Selecciona la actividad y completa el formulario</strong>
+        <p>Elige <em>Guardia de Seguridad</em> como actividad a ejercer. Luego completa los datos de capacitación y formación que se solicitan.</p>
+        <div class="capturas-row">
+          <div class="captura">
+            <img src="paso5a.png" alt="Selección actividad Guardia de Seguridad" />
+            <div class="captura-label">Seleccionar "Guardia de Seguridad"</div>
+          </div>
+          <div class="captura">
+            <img src="paso5b.png" alt="Completar datos y enviar" />
+            <div class="captura-label">Completar datos y clic en "Enviar"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASO 2 -->
+  <div class="seccion-titulo">
+    <div class="num">2</div>
+    <h2>Adjunta el Comprobante de Capacitación</h2>
+  </div>
+
+  <div class="alerta-pantallazo">
+    <div class="icono-alerta">📸</div>
+    <div>
+      <p><strong>¿Qué debes subir en el campo "Capacitación"?</strong><br/>
+      En la sección de capacitación de la plataforma, debes adjuntar el <strong>correo de aprobación</strong> que recibiste de INASEP al finalizar el curso. Guárdalo previamente en <strong>formato PDF</strong> antes de adjuntarlo.</p>
+      <div class="captura" style="margin-top:12px;">
+        <img src="paso6.png" alt="Tab Capacitación - adjuntar correo de aprobación" />
+        <div class="captura-label">Tab "Capacitación" — adjuntar correo de aprobación en PDF</div>
+      </div>
+      <div class="upload-zona">
+        <p>📎 Adjuntar correo de aprobación (formato PDF)</p>
+        <small>Guarda el correo como PDF desde tu cliente de correo antes de subirlo</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- PASO 3 -->
+  <div class="seccion-titulo">
+    <div class="num">3</div>
+    <h2>Documentos Requeridos por la Plataforma</h2>
+  </div>
+
+  <p style="font-size:0.88rem; color:var(--texto-suave); margin-bottom:18px;">
+    Prepara los siguientes documentos <strong>antes</strong> de iniciar tu solicitud. Todos deben estar en formato PDF o JPG con buena resolución.
+  </p>
+
+  <div class="docs-grid">
+    <div class="doc-card">
+      <div class="doc-icono">🪪</div>
+      <div class="doc-texto">
+        <strong>Cédula de Identidad</strong>
+        <span>Ambos lados, vigente y legible</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icono">📜</div>
+      <div class="doc-texto">
+        <strong>Certificado de Antecedentes</strong>
+        <span>Para fines especiales, emitido por el Registro Civil</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icono">🏥</div>
+      <div class="doc-texto">
+        <strong>Examen Médico</strong>
+        <span>Informe de aptitud física y psicológica</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icono">📧</div>
+      <div class="doc-texto">
+        <strong>Correo de Aprobación del Curso</strong>
+        <span>Enviado por INASEP · guardar como PDF</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-icono">🎓</div>
+      <div class="doc-texto">
+        <strong>Certificado de Capacitación</strong>
+        <span>Emitido por INASEP al aprobar el OS-10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Declaraciones juradas -->
+  <div class="seccion-titulo" style="margin-top:32px;">
+    <div class="num">↓</div>
+    <h2>Declaraciones Juradas — Descarga aquí</h2>
+  </div>
+  <p style="font-size:0.88rem; color:var(--texto-suave); margin-bottom:16px;">
+    Estos formularios los completas tú mismo, los firmas ante notario y los subes a la plataforma. Descárgalos en Word, llénalos e imprímelos.
+  </p>
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <a href="https://docs.google.com/document/d/1myFYBVzzyFSwvOzjh84iNqt_qgYZn1e9/export?format=docx" class="dj-link">
+      <span>✍️</span>
+      <span>Declaración jurada — No haber sido acusado por delitos</span>
+      <span class="dj-dl">⬇ Word</span>
+    </a>
+    <a href="https://docs.google.com/document/d/1DIchORCiYtoKvzj-0kA24NmYX075FWeG/export?format=docx" class="dj-link">
+      <span>⚖️</span>
+      <span>Declaración jurada — No haber sido sancionado conforme a la Ley N°19.327</span>
+      <span class="dj-dl">⬇ Word</span>
+    </a>
+    <a href="https://docs.google.com/document/d/1SCO0iuwZicAafiNzuHt3PwRie1fHLBa4/export?format=docx" class="dj-link">
+      <span>🔍</span>
+      <span>Declaración — Desvinculación sin sanción / No ejercicio de funciones de supervisión en seg. privada (últimos 2 años)</span>
+      <span class="dj-dl">⬇ Word</span>
+    </a>
+    <a href="https://docs.google.com/document/d/1wgH97F5a2JAGXUZ1hDqHoaoUOKndDkJy/export?format=docx" class="dj-link">
+      <span>📝</span>
+      <span>Declaración jurada simple — Art. 1° Ley N° 21.659 sobre Seguridad Privada</span>
+      <span class="dj-dl">⬇ Word</span>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PASO 4 -->
+  <div class="seccion-titulo">
+    <div class="num">4</div>
+    <h2>Envío de la Solicitud</h2>
+  </div>
+
+  <div class="pasos">
+    <div class="paso">
+      <div class="icono">✅</div>
+      <div class="contenido">
+        <strong>Revisa que todos los documentos estén adjuntos</strong>
+        <p>Antes de enviar, verifica que cada campo requerido esté completado y que los archivos sean legibles.</p>
+      </div>
+    </div>
+    <div class="paso">
+      <div class="icono">📤</div>
+      <div class="contenido">
+        <strong>Haz clic en "Enviar"</strong>
+        <p>Una vez adjuntados todos los documentos, ve al tab <em>Enviar</em>, acepta la declaración jurada y haz clic en <strong>Seleccione aceptar</strong>. Recibirás una confirmación en tu correo registrado.</p>
+        <div class="captura">
+          <img src="paso7.png" alt="Tab Enviar - aceptar y enviar solicitud" />
+          <div class="captura-label">Tab "Enviar" — aceptar declaración y enviar</div>
+        </div>
+        <span class="nota">⏱ El proceso de revisión por parte de la SPD puede tomar algunos días hábiles.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ayuda -->
+  <div class="intro-box" style="margin-top:36px; border-left-color: var(--verde-claro);">
+    <p>¿Tienes dudas? Contáctanos por <strong>WhatsApp +56 9 4406 1866</strong> o escríbenos a <strong>contacto@inasep.cl</strong>. Estamos para ayudarte en cada etapa del proceso.</p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <strong>INASEP</strong> — Instituto Nacional de Seguridad Privada SpA<br/>
+  <span style="font-size:0.75rem; opacity:0.7;">OTEC autorizada por la Subsecretaría de Prevención del Delito · SENCE · Ley N° 21.659</span>
+  <div class="contacto">
+    <a href="mailto:contacto@inasep.cl">contacto@inasep.cl</a>
+    <a href="https://wa.me/56944061866" target="_blank">WhatsApp +56 9 4406 1866</a>
+    <span>Aníbal Pinto 875, Quilpué</span>
+    <a href="https://inasep.cl" target="_blank">inasep.cl</a>
+  </div>
+</footer>
+
+</body>
+</html>
